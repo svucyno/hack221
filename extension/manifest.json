@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Job Recommender AI",
+  "version": "1.0",
+  "description": "Get personalized job recommendations based on your skills instantly",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "*://*.linkedin.com/*",
+    "*://*.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*", "*://*.github.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

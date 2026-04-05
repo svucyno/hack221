@@ -1,0 +1,497 @@
+[
+  {
+    "id": 1,
+    "role": "Frontend Developer",
+    "required_skills": ["HTML5", "CSS3", "JavaScript", "React.js", "TypeScript", "Redux"],
+    "preferred_skills": ["WebGL", "SASS", "Figma", "Next.js"],
+    "education": ["Computer Science", "Software Engineering", "Any"],
+    "experience_level": "Mid",
+    "description": "Designs and implements user-facing web interfaces, ensuring high performance and visual fidelity.",
+    "related_roles": ["UI/UX Developer", "Web Developer", "Full Stack Developer"]
+  },
+  {
+    "id": 2,
+    "role": "Backend Developer",
+    "required_skills": ["Node.js", "Express.js", "PostgreSQL", "Redis", "Docker", "Mongoose"],
+    "preferred_skills": ["GraphQL", "Kafka", "AWS EC2"],
+    "education": ["Information Technology", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Builds and maintains server-side logic, databases, and APIs to support scalable applications.",
+    "related_roles": ["Software Engineer", "Full Stack Developer", "Systems Engineer"]
+  },
+  {
+    "id": 3,
+    "role": "Full Stack Developer",
+    "required_skills": ["React.js", "Node.js", "MongoDB", "Express.js", "Git", "REST APIs", "Jest"],
+    "preferred_skills": ["TypeScript", "CI/CD", "Tailwind CSS"],
+    "education": ["Computer Engineering", "Computer Science", "Any"],
+    "experience_level": "Senior",
+    "description": "Develops both client-side and server-side software, ensuring seamless integration across the application stack.",
+    "related_roles": ["Frontend Developer", "Backend Developer", "Software Architect"]
+  },
+  {
+    "id": 4,
+    "role": "Data Scientist",
+    "required_skills": ["Python", "Pandas", "Scikit-learn", "SQL", "Tableau", "Jupyter"],
+    "preferred_skills": ["PyTorch", "Hadoop", "Spark"],
+    "education": ["Data Science", "Statistics", "Mathematics", "Any"],
+    "experience_level": "Mid",
+    "description": "Analyzes large amounts of complex raw and processed information to find patterns that will improve business decisions.",
+    "related_roles": ["Machine Learning Engineer", "Data Analyst", "Quantitative Analyst"]
+  },
+  {
+    "id": 5,
+    "role": "Machine Learning Engineer",
+    "required_skills": ["Python", "TensorFlow", "PyTorch", "Keras", "NumPy", "CUDA"],
+    "preferred_skills": ["C++", "MLflow", "Kubeflow"],
+    "education": ["Artificial Intelligence", "Computer Science", "Mathematics", "Any"],
+    "experience_level": "Senior",
+    "description": "Designs and builds machine learning systems and AI models into production environments.",
+    "related_roles": ["Data Scientist", "AI Researcher", "Data Engineer"]
+  },
+  {
+    "id": 6,
+    "role": "Data Analyst",
+    "required_skills": ["Excel", "SQL", "PowerBI", "Python", "Google Analytics"],
+    "preferred_skills": ["Looker", "R", "Snowflake"],
+    "education": ["Economics", "Business Administration", "Any"],
+    "experience_level": "Entry",
+    "description": "Collects, processes, and performs statistical analyses of data to provide actionable business insights.",
+    "related_roles": ["Business Analyst", "Data Scientist", "Reporting Analyst"]
+  },
+  {
+    "id": 7,
+    "role": "DevOps Engineer",
+    "required_skills": ["Linux", "Docker", "Kubernetes", "Jenkins", "Terraform", "Ansible", "Bash"],
+    "preferred_skills": ["Prometheus", "Grafana", "ArgoCD"],
+    "education": ["Computer Science", "Information Systems", "Any"],
+    "experience_level": "Senior",
+    "description": "Bridges the gap between software development and IT operations to continuously deliver and deploy software.",
+    "related_roles": ["Site Reliability Engineer", "Platform Engineer", "Cloud Engineer"]
+  },
+  {
+    "id": 8,
+    "role": "Cloud Engineer",
+    "required_skills": ["AWS", "Azure", "GCP", "CloudFormation", "Python", "Networking"],
+    "preferred_skills": ["AWS Certified Solutions Architect", "Pulumi", "Serverless Framework"],
+    "education": ["Information Technology", "Cloud Computing", "Any"],
+    "experience_level": "Mid",
+    "description": "Designs, builds, and maintains scalable cloud infrastructure and services.",
+    "related_roles": ["DevOps Engineer", "Cloud Architect", "Systems Administrator"]
+  },
+  {
+    "id": 9,
+    "role": "Android Developer",
+    "required_skills": ["Kotlin", "Java", "Android Studio", "Retrofit", "Room", "Coroutines"],
+    "preferred_skills": ["Jetpack Compose", "RxJava", "Firebase"],
+    "education": ["Computer Science", "Mobile Development", "Any"],
+    "experience_level": "Mid",
+    "description": "Develops native mobile applications for the Android operating system and ensures high usability.",
+    "related_roles": ["Mobile Developer", "iOS Developer", "Software Engineer"]
+  },
+  {
+    "id": 10,
+    "role": "iOS Developer",
+    "required_skills": ["Swift", "Objective-C", "Xcode", "CoreData", "Alamofire", "UIKit"],
+    "preferred_skills": ["SwiftUI", "Combine", "TestFlight CI/CD"],
+    "education": ["Software Engineering", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Builds advanced applications for the iOS platform, focusing on seamless user experience across Apple devices.",
+    "related_roles": ["Mobile Developer", "Android Developer", "Mac Developer"]
+  },
+  {
+    "id": 11,
+    "role": "Cybersecurity Analyst",
+    "required_skills": ["Wireshark", "Splunk", "Nmap", "Metasploit", "Firewall Configuration", "Linux Security"],
+    "preferred_skills": ["CISSP", "CEH", "Snort", "Burp Suite"],
+    "education": ["Cybersecurity", "Network Engineering", "Any"],
+    "experience_level": "Mid",
+    "description": "Monitors network traffic for security events and architects solutions to prevent data breaches.",
+    "related_roles": ["Information Security Engineer", "Penetration Tester", "Security Architect"]
+  },
+  {
+    "id": 12,
+    "role": "UI/UX Designer",
+    "required_skills": ["Figma", "Adobe XD", "Sketch", "InVision", "Wireframing", "Prototyping"],
+    "preferred_skills": ["Illustrator", "After Effects", "HTML/CSS Basics"],
+    "education": ["Graphic Design", "Human-Computer Interaction", "Any"],
+    "experience_level": "Entry",
+    "description": "Creates intuitive, user-centric interfaces and journeys for digital products.",
+    "related_roles": ["Product Designer", "Web Designer", "Frontend Developer"]
+  },
+  {
+    "id": 13,
+    "role": "Database Administrator",
+    "required_skills": ["Oracle DB", "Microsoft SQL Server", "MySQL", "Database Tuning", "Backup", "PL/SQL"],
+    "preferred_skills": ["Cassandra", "MongoDB", "Data Warehousing"],
+    "education": ["Information Systems", "Computer Science", "Any"],
+    "experience_level": "Senior",
+    "description": "Manages database systems, ensuring high availability, performance optimization, and data security.",
+    "related_roles": ["Data Engineer", "Systems Administrator", "Database Developer"]
+  },
+  {
+    "id": 14,
+    "role": "Software Tester/QA Engineer",
+    "required_skills": ["Selenium", "JUnit", "Cypress", "Postman", "TestNG", "JIRA"],
+    "preferred_skills": ["Appium", "Playwright", "LoadRunner"],
+    "education": ["Computer Engineering", "Information Technology", "Any"],
+    "experience_level": "Entry",
+    "description": "Designs and implements automated test scripts to ensure software quality and identify defects before release.",
+    "related_roles": ["Automation Engineer", "Quality Assurance Analyst", "Release Manager"]
+  },
+  {
+    "id": 15,
+    "role": "Blockchain Developer",
+    "required_skills": ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Truffle", "Rust"],
+    "preferred_skills": ["Hardhat", "Cryptography", "Hyperledger Fabric"],
+    "education": ["Computer Science", "Cryptography", "Any"],
+    "experience_level": "Mid",
+    "description": "Develops decentralized applications and smart contracts on various blockchain platforms.",
+    "related_roles": ["Smart Contract Engineer", "Web3 Developer", "Backend Developer"]
+  },
+  {
+    "id": 16,
+    "role": "NLP Engineer",
+    "required_skills": ["Python", "Hugging Face Transformers", "spaCy", "NLTK", "PyTorch", "Gensim"],
+    "preferred_skills": ["LangChain", "OpenAI API", "Elasticsearch"],
+    "education": ["Computational Linguistics", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Develops advanced natural language processing models for text analysis, translation, and generative AI features.",
+    "related_roles": ["Machine Learning Engineer", "AI Research Scientist", "Data Scientist"]
+  },
+  {
+    "id": 17,
+    "role": "Computer Vision Engineer",
+    "required_skills": ["OpenCV", "Python", "PyTorch", "C++", "YOLO", "TensorFlow"],
+    "preferred_skills": ["CUDA", "MATLAB", "MediaPipe"],
+    "education": ["Computer Vision", "Electrical Engineering", "Any"],
+    "experience_level": "Senior",
+    "description": "Builds and deploys deep learning models specialized in image and video processing.",
+    "related_roles": ["Machine Learning Engineer", "Robotics Engineer", "AI Researcher"]
+  },
+  {
+    "id": 18,
+    "role": "AI Research Scientist",
+    "required_skills": ["PyTorch", "Python", "JAX", "Deep Learning Algorithms", "Mathematics", "Linux"],
+    "preferred_skills": ["LaTeX", "Ray", "Slurm"],
+    "education": ["Artificial Intelligence", "Mathematics", "Any"],
+    "experience_level": "Senior",
+    "description": "Conducts cutting-edge AI research to discover novel algorithms and push the boundaries of machine intelligence.",
+    "related_roles": ["Machine Learning Engineer", "Data Scientist", "Algorithm Engineer"]
+  },
+  {
+    "id": 19,
+    "role": "Data Engineer",
+    "required_skills": ["Apache Spark", "Apache Kafka", "Airflow", "Python", "Snowflake", "dbt"],
+    "preferred_skills": ["Hadoop", "AWS Redshift", "Scala"],
+    "education": ["Computer Science", "Information Systems", "Any"],
+    "experience_level": "Mid",
+    "description": "Designs and orchestrates massive data pipelines and architectures for analytics workloads.",
+    "related_roles": ["Database Administrator", "Big Data Engineer", "Data Architect"]
+  },
+  {
+    "id": 20,
+    "role": "Business Intelligence Developer",
+    "required_skills": ["Tableau", "PowerBI", "SQL Server", "SSIS", "DAX", "Data Modeling"],
+    "preferred_skills": ["QlikView", "Looker", "Alteryx"],
+    "education": ["Business Analytics", "Information Systems", "Any"],
+    "experience_level": "Mid",
+    "description": "Transforms abstract data sources into clear, interactive dashboards and analytical reports for executive decision-making.",
+    "related_roles": ["Data Analyst", "Reporting Analyst", "BI Consultant"]
+  },
+  {
+    "id": 21,
+    "role": "MLOps Engineer",
+    "required_skills": ["Kubernetes", "Docker", "MLflow", "Python", "Terraform", "GitHub Actions"],
+    "preferred_skills": ["Prometheus", "BentoML", "Seldon Core"],
+    "education": ["Computer Science", "Software Engineering", "Any"],
+    "experience_level": "Senior",
+    "description": "Bridges machine learning and DevOps, ensuring scalable and reproducible AI model deployments.",
+    "related_roles": ["DevOps Engineer", "Machine Learning Engineer", "Platform Engineer"]
+  },
+  {
+    "id": 22,
+    "role": "Quantitative Analyst",
+    "required_skills": ["Python", "C++", "R", "Time-Series Analysis", "Matplotlib", "SQL"],
+    "preferred_skills": ["KDB+", "Bloomberg API", "Statsmodels"],
+    "education": ["Quantum Physics", "Financial Engineering", "Mathematics", "Any"],
+    "experience_level": "Mid",
+    "description": "Applies rigorous mathematical and statistical methods to financial and risk management problems.",
+    "related_roles": ["Data Scientist", "Financial Analyst", "Algorithm Trader"]
+  },
+  {
+    "id": 23,
+    "role": "React Native Developer",
+    "required_skills": ["JavaScript", "React Native", "Redux", "TypeScript", "Babel", "Metro Bundler"],
+    "preferred_skills": ["Expo", "Jest", "Native modules (iOS/Android)"],
+    "education": ["Software Engineering", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Develops cross-platform mobile applications matching native performance using the React framework.",
+    "related_roles": ["Mobile Developer", "Frontend Developer", "iOS Developer"]
+  },
+  {
+    "id": 24,
+    "role": "Flutter Developer",
+    "required_skills": ["Dart", "Flutter Framework", "Provider", "Firebase", "BLoC Pattern", "Android Studio"],
+    "preferred_skills": ["Riverpod", "SQLite", "Fastlane"],
+    "education": ["Computer Science", "Mobile Development", "Any"],
+    "experience_level": "Entry",
+    "description": "Creates highly interactive, natively compiled mobile, web, and desktop applications from a single codebase.",
+    "related_roles": ["Mobile Developer", "Android Developer", "UI Developer"]
+  },
+  {
+    "id": 25,
+    "role": "Vue.js Developer",
+    "required_skills": ["Vue.js", "Vuex", "JavaScript", "HTML5", "CSS3", "Vite"],
+    "preferred_skills": ["Nuxt.js", "Tailwind CSS", "Pinia"],
+    "education": ["Computer Science", "Web Development", "Any"],
+    "experience_level": "Mid",
+    "description": "Builds reactive single-page front-end web applications and interfaces utilizing the Vue ecosystem.",
+    "related_roles": ["Frontend Developer", "Web Developer", "UI Developer"]
+  },
+  {
+    "id": 26,
+    "role": "WordPress Developer",
+    "required_skills": ["PHP", "WordPress Core", "MySQL", "jQuery", "HTML5", "CSS3"],
+    "preferred_skills": ["WooCommerce", "ACF", "React.js"],
+    "education": ["Information Technology", "Web Development", "Any"],
+    "experience_level": "Entry",
+    "description": "Customizes, creates, and maintains WordPress themes, plugins, and scalable content management architectures.",
+    "related_roles": ["Web Developer", "PHP Developer", "Frontend Developer"]
+  },
+  {
+    "id": 27,
+    "role": "Site Reliability Engineer",
+    "required_skills": ["Go", "Python", "Kubernetes", "Prometheus", "Linux", "Terraform"],
+    "preferred_skills": ["Datadog", "PagerDuty", "Envoy"],
+    "education": ["Computer Science", "Information Systems", "Any"],
+    "experience_level": "Senior",
+    "description": "Focuses on maximizing system uptime and performance reliability through software engineering practices and automation.",
+    "related_roles": ["DevOps Engineer", "Systems Engineer", "Cloud Engineer"]
+  },
+  {
+    "id": 28,
+    "role": "Cloud Architect",
+    "required_skills": ["AWS Architecting", "Azure Virtual Network", "Terraform", "Microservices", "Docker", "Linux"],
+    "preferred_skills": ["GCP Cloud Architect", "Cost Optimization", "Istio"],
+    "education": ["Cloud Computing", "Computer Science", "Any"],
+    "experience_level": "Senior",
+    "description": "Designs comprehensive overarching cloud strategies, migrating critical systems to optimized cloud architectures.",
+    "related_roles": ["Solutions Architect", "Cloud Engineer", "Enterprise Architect"]
+  },
+  {
+    "id": 29,
+    "role": "Network Engineer",
+    "required_skills": ["Cisco IOS", "BGP", "OSPF", "Wireshark", "Firewalls", "TCP/IP"],
+    "preferred_skills": ["CCNA", "Juniper Junos", "Ansible"],
+    "education": ["Network Engineering", "Information Technology", "Any"],
+    "experience_level": "Mid",
+    "description": "Designs, implements, and maintains robust physical and virtual networking infrastructure for the organization.",
+    "related_roles": ["Systems Administrator", "Network Architect", "IT Support Engineer"]
+  },
+  {
+    "id": 30,
+    "role": "Systems Administrator",
+    "required_skills": ["Active Directory", "Windows Server", "Linux Administration", "PowerShell", "VMware", "Bash"],
+    "preferred_skills": ["Office 365 Admin", "Hyper-V", "Jamf"],
+    "education": ["Information Systems", "Computer Networking", "Any"],
+    "experience_level": "Mid",
+    "description": "Ensures the reliable operation and configuration of internal computer systems, servers, and multi-user setups.",
+    "related_roles": ["Network Engineer", "IT Engineer", "Support Specialist"]
+  },
+  {
+    "id": 31,
+    "role": "Platform Engineer",
+    "required_skills": ["Kubernetes", "Helm", "Go", "Docker", "GitHub Actions", "ArgoCD"],
+    "preferred_skills": ["Crossplane", "Backstage", "Promstack"],
+    "education": ["Computer Science", "Software Engineering", "Any"],
+    "experience_level": "Senior",
+    "description": "Builds internal developer tooling, automation interfaces, and robust deployment platforms for software engineering teams.",
+    "related_roles": ["Site Reliability Engineer", "DevOps Engineer", "Software Engineer"]
+  },
+  {
+    "id": 32,
+    "role": "Penetration Tester",
+    "required_skills": ["Burp Suite", "Metasploit", "Kali Linux", "OWASP Top 10", "Nmap", "Python"],
+    "preferred_skills": ["OSCP Certification", "Bash", "Reverse Engineering"],
+    "education": ["Cybersecurity", "Network Architecture", "Any"],
+    "experience_level": "Mid",
+    "description": "Simulates offensive cyberattacks under controlled environments to expose critical software vulnerabilities before malicious actors exploit them.",
+    "related_roles": ["Security Engineer", "Cybersecurity Analyst", "Red Team Operator"]
+  },
+  {
+    "id": 33,
+    "role": "Security Engineer",
+    "required_skills": ["Linux Security", "Palo Alto Firewalls", "Splunk", "Python", "IAM Policies", "Cryptography"],
+    "preferred_skills": ["CISSP", "AWS Security", "Snort"],
+    "education": ["Information Security", "Computer Science", "Any"],
+    "experience_level": "Senior",
+    "description": "Engineers and configures active defense mechanisms, firewalls, and encryption protocols protecting enterprise assets.",
+    "related_roles": ["Cybersecurity Analyst", "Penetration Tester", "Cloud Security Specialist"]
+  },
+  {
+    "id": 34,
+    "role": "Cloud Security Specialist",
+    "required_skills": ["AWS IAM", "Azure Security Center", "Terraform", "GuardDuty", "Kubernetes Security", "Python"],
+    "preferred_skills": ["AWS Security Specialty", "CloudTrail", "Prisma Cloud"],
+    "education": ["Information Technology", "Cloud Computing", "Any"],
+    "experience_level": "Senior",
+    "description": "Evaluates, patches, and monitors the security posture specifically relating to distributed deployment infrastructure and cloud containers.",
+    "related_roles": ["Security Engineer", "Cloud Engineer", "DevOps Engineer"]
+  },
+  {
+    "id": 35,
+    "role": "AR/VR Developer",
+    "required_skills": ["Unity 3D", "C#", "Unreal Engine", "C++", "Oculus SDK", "Blender"],
+    "preferred_skills": ["ARCore", "ARKit", "WebGL"],
+    "education": ["Game Design", "Computer Graphics", "Any"],
+    "experience_level": "Mid",
+    "description": "Pioneers immersive virtual and augmented reality experiences utilizing sophisticated 3D engine programming.",
+    "related_roles": ["Game Developer", "3D Graphics Programmer", "Software Engineer"]
+  },
+  {
+    "id": 36,
+    "role": "IoT Engineer",
+    "required_skills": ["C++", "Python", "MQTT", "Arduino", "Raspberry Pi", "AWS IoT Core"],
+    "preferred_skills": ["FreeRTOS", "LoRaWAN", "Bluetooth LE"],
+    "education": ["Electrical Engineering", "Computer Engineering", "Any"],
+    "experience_level": "Mid",
+    "description": "Connects and develops logic for sensor-driven hardware systems interacting with scalable cloud endpoints.",
+    "related_roles": ["Embedded Systems Engineer", "Hardware Engineer", "Backend Developer"]
+  },
+  {
+    "id": 37,
+    "role": "Embedded Systems Engineer",
+    "required_skills": ["C", "C++", "Microcontrollers", "RTOS", "SPI/I2C/UART", "Oscilloscopes"],
+    "preferred_skills": ["ARM Cortex", "Verilog", "Zephyr"],
+    "education": ["Electrical Engineering", "Embedded Systems", "Any"],
+    "experience_level": "Senior",
+    "description": "Writes low-level code directly driving and operating integrated hardware circuitry and microchips.",
+    "related_roles": ["Firmware Engineer", "IoT Engineer", "Systems Programmer"]
+  },
+  {
+    "id": 38,
+    "role": "Robotics Engineer",
+    "required_skills": ["ROS", "C++", "Python", "Kinematics", "Computer Vision", "Linux"],
+    "preferred_skills": ["Gazebo Simulation", "Control Theory", "SLAM"],
+    "education": ["Robotics", "Mechanical Engineering", "Any"],
+    "experience_level": "Senior",
+    "description": "Designs logic for autonomous machines, combining hardware actuation, sensor integration, and software navigation.",
+    "related_roles": ["Embedded Systems Engineer", "AI Researcher", "Computer Vision Engineer"]
+  },
+  {
+    "id": 39,
+    "role": "Game Developer",
+    "required_skills": ["C#", "C++", "Unity 3D", "Unreal Engine", "OpenGL", "Game Physics"],
+    "preferred_skills": ["Vulkan", "Maya", "Network Programming"],
+    "education": ["Game Programming", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Translates game design constructs into playable interactions, robust mechanics, and rendering logic.",
+    "related_roles": ["Graphics Programmer", "Software Engineer", "AR/VR Developer"]
+  },
+  {
+    "id": 40,
+    "role": "Web3 Developer",
+    "required_skills": ["Ethers.js", "Web3.js", "React.js", "Solidity", "MetaMask APIs", "TypeScript"],
+    "preferred_skills": ["The Graph", "Hardhat", "Next.js"],
+    "education": ["Computer Science", "Software Engineering", "Any"],
+    "experience_level": "Entry",
+    "description": "Focuses on front-end user experience intersecting with decentralized smart contract ecosystems.",
+    "related_roles": ["Blockchain Developer", "Frontend Developer", "Full Stack Developer"]
+  },
+  {
+    "id": 41,
+    "role": "Product Manager",
+    "required_skills": ["JIRA", "Confluence", "Agile Methodologies", "User Research", "Wireframing", "A/B Testing"],
+    "preferred_skills": ["Figma", "Google Analytics", "Mixpanel"],
+    "education": ["Business Administration", "Marketing", "Any"],
+    "experience_level": "Mid",
+    "description": "Defines product strategy, prioritizes feature roadmaps, and bridges the gaps between business goals and engineering execution.",
+    "related_roles": ["Technical Product Manager", "Business Analyst", "Product Owner"]
+  },
+  {
+    "id": 42,
+    "role": "Technical Product Manager",
+    "required_skills": ["Product Lifecycle Management", "SQL", "JIRA", "API Design", "Agile", "System Architecture"],
+    "preferred_skills": ["Python", "Postman", "AWS Basics"],
+    "education": ["Computer Science", "Business Administration", "Any"],
+    "experience_level": "Senior",
+    "description": "Steers deeply technical engineering products, using system-level understanding to prioritize complex infrastructure backlogs.",
+    "related_roles": ["Product Manager", "Solutions Architect", "Engineering Manager"]
+  },
+  {
+    "id": 43,
+    "role": "Scrum Master",
+    "required_skills": ["Scrum Framework", "JIRA", "Kanban", "Sprint Planning", "Risk Mitigation", "Facilitation"],
+    "preferred_skills": ["CSM Certification", "SAFe", "Rally"],
+    "education": ["Project Management", "Business Administration", "Any"],
+    "experience_level": "Mid",
+    "description": "Guides teams on Agile methodologies and removes workflow impediments to ensure consistent engineering delivery.",
+    "related_roles": ["Agile Coach", "Project Manager", "Delivery Manager"]
+  },
+  {
+    "id": 44,
+    "role": "Business Analyst",
+    "required_skills": ["Excel", "SQL", "Requirements Gathering", "UML Modeling", "BPMN", "Visio"],
+    "preferred_skills": ["PowerBI", "Tableau", "Salesforce"],
+    "education": ["Business Analytics", "Information Systems", "Any"],
+    "experience_level": "Entry",
+    "description": "Evaluates commercial models and drafts functional software specifications to solve specific organizational problems.",
+    "related_roles": ["Data Analyst", "Product Owner", "Operations Analyst"]
+  },
+  {
+    "id": 45,
+    "role": "Solutions Architect",
+    "required_skills": ["System Design", "AWS", "Microservices", "REST APIs", "Java", "Docker"],
+    "preferred_skills": ["TOGAF", "Kubernetes", "Kafka"],
+    "education": ["Computer Science", "Information Technology", "Any"],
+    "experience_level": "Senior",
+    "description": "Designs bespoke software solutions interfacing uniquely tailored technologies to solve enterprise-scale client challenges.",
+    "related_roles": ["Cloud Architect", "Enterprise Architect", "Technical Product Manager"]
+  },
+  {
+    "id": 46,
+    "role": "NLP Researcher",
+    "required_skills": ["Python", "PyTorch", "Transformers", "LLMs", "Algorithms", "Mathematics"],
+    "preferred_skills": ["LangChain", "RLHF", "DeepSpeed"],
+    "education": ["Computer Science", "Artificial Intelligence", "Any"],
+    "experience_level": "Senior",
+    "description": "Researches and implements new language models, working closely with theoretical concepts of NLP.",
+    "related_roles": ["NLP Engineer", "AI Research Scientist"]
+  },
+  {
+    "id": 47,
+    "role": "DevSecOps Engineer",
+    "required_skills": ["GitLab CI", "SonarQube", "Snyk", "Docker", "Kubernetes", "Python"], "preferred_skills": ["Terraform", "Trivy", "AWS Security"], "education": ["Computer Science", "Information Security", "Any"],
+    "experience_level": "Senior",
+    "description": "Integrates security practices seamlessly within the DevOps pipeline, enforcing code compliance continuously.",
+    "related_roles": ["DevOps Engineer", "Security Engineer", "Cloud Engineer"]
+  },
+  {
+    "id": 48,
+    "role": "Data Architect",
+    "required_skills": ["Data Warehousing", "Snowflake", "AWS Redshift", "ETL/ELT", "Data Governance", "SQL"],
+    "preferred_skills": ["Data Mesh", "Kafka", "Databricks"], "education": ["Computer Science", "Information Systems", "Any"],
+    "experience_level": "Senior",
+    "description": "Visions and defines the overarching data structure, models, and flow schemas for entire enterprise systems.",
+    "related_roles": ["Data Engineer", "Database Administrator"]
+  },
+  {
+    "id": 49,
+    "role": "Mobile Game Developer",
+    "required_skills": ["C#", "Unity 3D", "C++", "Mobile Optimization", "UI/UX", "Physics Engines"],
+    "preferred_skills": ["Monetization APIs", "Multiplayer Sync", "Swift/Kotlin"], "education": ["Game Programming", "Computer Science", "Any"],
+    "experience_level": "Mid",
+    "description": "Constructs high-performance 2D and 3D games tailored for mobile platforms (iOS and Android).",
+    "related_roles": ["Game Developer", "iOS Developer", "Android Developer"]
+  },
+  {
+    "id": 50,
+    "role": "API Developer",
+    "required_skills": ["Node.js", "Express.js", "GraphQL", "REST APIs", "PostgreSQL", "Swagger/OpenAPI"],
+    "preferred_skills": ["gRPC", "Redis", "API Gateway"], "education": ["Computer Science", "Software Engineering", "Any"],
+    "experience_level": "Mid",
+    "description": "Designs and orchestrates fast, scalable, and secure application programming interfaces connecting diverse client services.",
+    "related_roles": ["Backend Developer", "Full Stack Developer"]
+  }
+]
