@@ -11,8 +11,9 @@
   --border-radius: 8px;
 }
 
-body {
+html, body {
   width: 400px;
+  height: 600px;
   max-height: 580px;
   margin: 0;
   padding: 0;
@@ -469,6 +470,10 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  transition: background 0.2s ease;
+}
+.resources-toggle:hover {
+  background: #f1f5f9;
 }
 .resources-content {
   padding: 12px;

@@ -47,14 +47,20 @@ class CandidateProfile(BaseModel):
     education: str
     certifications: List[str] = []
 
+def normalize_skill(skill: str) -> str:
+    """Normalizes skill names by removing common suffixes and special characters."""
+    return str(skill).lower().replace(".js", "").replace(" js", "").replace("-", "").replace(" ", "").strip()
+
 def build_candidate_text(profile: CandidateProfile) -> str:
-    """Joins all candidate details into a single lowercase string for vectorization."""
-    elements = profile.skills + profile.projects + [profile.education] + profile.certifications
+    """Joins all candidate details with weighted skills for better semantic vectorization."""
+    # Weight skills by repeating them
+    weighted_skills = (profile.skills * 2) 
+    elements = weighted_skills + profile.projects + [profile.education] + profile.certifications
     return " ".join([str(e).lower() for e in elements])
 
 def calculate_skill_match(candidate_skills: List[str], job: Dict[str, Any]) -> dict:
-    """Calculates skill match percentage and lists missing required skills."""
-    cand_set = set(s.lower() for s in candidate_skills)
+    """Calculates skill match percentage using flexible normalization and lists missing skills."""
+    cand_norm = {normalize_skill(s) for s in candidate_skills}
     req_skills_original = job.get("required_skills", [])
     
     if not req_skills_original:
@@ -64,7 +70,9 @@ def calculate_skill_match(candidate_skills: List[str], job: Dict[str, Any]) -> d
     missing = []
     
     for req in req_skills_original:
-        if req.lower() in cand_set:
+        req_norm = normalize_skill(req)
+        # Check for direct match or partial match
+        if req_norm in cand_norm or any(req_norm in c or c in req_norm for c in cand_norm):
             matched += 1
         else:
             missing.append(req)
@@ -72,9 +80,30 @@ def calculate_skill_match(candidate_skills: List[str], job: Dict[str, Any]) -> d
     score = (matched / len(req_skills_original)) * 100
     return {"score": score, "missing_skills": missing}
 
-def calculate_final_score(semantic_score: float, skill_score: float) -> float:
-    """Calculates the weighted average of semantic similarity and skill score."""
-    return round((semantic_score * 0.5) + (skill_score * 0.5), 1)
+def calculate_final_score(semantic_score: float, skill_score: float, role_name: str, candidate_skills: List[str]) -> float:
+    """Calculates the final score with weighted semantic/skill components and role-specific boosting."""
+    base_score = (semantic_score * 0.6) + (skill_score * 0.4)
+    
+    # Apply role-based boosting for anchor skills
+    boost = 0
+    cand_lower = [s.lower() for s in candidate_skills]
+    
+    boosting_rules = {
+        "Data Scientist": ["python", "machine learning", "statistics"],
+        "ML Engineer": ["python", "tensorflow", "pytorch"],
+        "Frontend Developer": ["javascript", "react", "html"],
+        "Backend Developer": ["python", "node", "java", "sql"],
+        "Full Stack Developer": ["javascript", "node", "react"],
+        "DevOps Engineer": ["docker", "kubernetes", "aws", "linux"],
+        "Cloud Architect": ["aws", "azure", "gcp"],
+        "AI/NLP Engineer": ["python", "nlp", "transformers"]
+    }
+    
+    if role_name in boosting_rules:
+        match_count = sum(1 for anchor in boosting_rules[role_name] if any(anchor in c for c in cand_lower))
+        boost = (match_count / len(boosting_rules[role_name])) * 5.0 # Max 5% boost
+        
+    return round(min(base_score + boost, 100.0), 1)
 
 @app.post("/recommend")
 async def recommend_jobs(profile: CandidateProfile):
@@ -83,14 +112,11 @@ async def recommend_jobs(profile: CandidateProfile):
         candidate_text = build_candidate_text(profile)
         candidate_embedding = model.encode([candidate_text], convert_to_tensor=True)
         
-        # sentence_transformers.util.cos_sim returns a matrix, we extract the first row [0]
         cos_scores = util.cos_sim(candidate_embedding, job_embeddings)[0]
-        # Convert tensor scores to list of floats
         semantic_sim = cos_scores.tolist()
         
         results = []
         for i, job in enumerate(JOB_ROLES):
-            # Scale semantic score from 0-1 to 0-100 (clamp at 0 just in case)
             raw_sim = float(semantic_sim[i])
             semantic_score = max(0.0, raw_sim) * 100
             
@@ -98,10 +124,11 @@ async def recommend_jobs(profile: CandidateProfile):
             skill_score = skill_info["score"]
             missing_skills = skill_info["missing_skills"]
             
-            final_match = calculate_final_score(semantic_score, skill_score)
+            role_name = job.get("role")
+            final_match = calculate_final_score(semantic_score, skill_score, role_name, profile.skills)
             
             results.append({
-                "role": job.get("role"),
+                "role": role_name,
                 "match_percentage": final_match,
                 "description": job.get("description"),
                 "missing_skills": missing_skills,

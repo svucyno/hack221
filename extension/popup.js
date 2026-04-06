@@ -559,33 +559,36 @@
   function extractSkillsFromText(rawText) {
     const knownSkills = [
       "python", "javascript", "java", "c++", "c#", "c", "r", "ruby", "go", "rust", "swift",
-      "kotlin", "dart", "php", "scala", "typescript", "sql", "nosql", "bash", "shell",
-      "html", "css", "sass", "less", "tailwind", "bootstrap",
-      "react", "angular", "vue", "svelte", "next.js", "nuxt", "gatsby",
-      "node.js", "express", "django", "flask", "spring", "fastapi", "rails",
-      "react native", "flutter", "swift", "kotlin",
-      "tensorflow", "pytorch", "scikit-learn", "keras", "opencv", "hugging face",
-      "machine learning", "deep learning", "nlp", "computer vision", "ai",
-      "data analysis", "data visualization", "statistics", "pandas", "numpy", "matplotlib",
+      "kotlin", "dart", "php", "scala", "typescript", "sql", "nosql", "bash", "shell", "powershell",
+      "html", "css", "sass", "less", "tailwind", "bootstrap", "material ui", "daisy ui",
+      "react", "angular", "vue", "svelte", "next.js", "nuxt", "gatsby", "remix", "astro",
+      "node.js", "express", "django", "flask", "spring", "fastapi", "rails", "laravel",
+      "react native", "flutter", "ionic", "xamarin", "android sdk", "ios sdk",
+      "tensorflow", "pytorch", "scikit-learn", "keras", "opencv", "hugging face", "langchain",
+      "machine learning", "deep learning", "nlp", "computer vision", "ai", "llm", "generative ai",
+      "data analysis", "data visualization", "statistics", "pandas", "numpy", "matplotlib", "seaborn",
       "docker", "kubernetes", "aws", "azure", "gcp", "terraform", "ansible",
-      "ci/cd", "jenkins", "github actions", "gitlab ci",
-      "git", "linux", "agile", "scrum",
-      "postgresql", "mysql", "mongodb", "redis", "elasticsearch", "firebase",
-      "graphql", "rest api", "microservices", "serverless",
-      "figma", "sketch", "adobe xd", "photoshop",
-      "unity", "unreal engine", "blender",
-      "solidity", "web3.js", "ethereum", "blockchain",
-      "selenium", "cypress", "jest", "playwright",
-      "apache spark", "hadoop", "kafka", "airflow",
-      "networking", "security", "encryption", "penetration testing",
-      "embedded systems", "iot", "rtos", "microcontrollers",
-      "product management", "technical writing", "user research"
+      "ci/cd", "jenkins", "github actions", "gitlab ci", "prometheus", "grafana", "elk stack",
+      "git", "linux", "agile", "scrum", "kanban", "graphql", "rest api", "microservices", "serverless",
+      "postgresql", "mysql", "mongodb", "redis", "elasticsearch", "firebase", "supabase", "prisma",
+      "figma", "sketch", "adobe xd", "photoshop", "illustrator",
+      "unity", "unreal engine", "blender", "three.js",
+      "solidity", "web3.js", "ethereum", "blockchain", "ethers.js",
+      "selenium", "cypress", "jest", "playwright", "mocha", "chai",
+      "apache spark", "hadoop", "kafka", "airflow", "snowflake", "databricks", "bigquery",
+      "networking", "security", "encryption", "penetration testing", "cybersecurity",
+      "embedded systems", "iot", "rtos", "microcontrollers", "arduino", "raspberry pi",
+      "product management", "technical writer", "user research", "seo", "marketing", "leadership",
+      "project management", "sdlc", "scrum master", "product owner"
     ];
 
-    const text = normalize(rawText);
+    const text = (rawText || "").toLowerCase();
     const found = [];
     for (const skill of knownSkills) {
-      if (text.includes(skill) && !found.includes(skill)) {
+      // Escape special characters for regex
+      const escapedSkill = skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`\\b${escapedSkill}\\b`, 'gi');
+      if (regex.test(text) && !found.includes(skill)) {
         found.push(skill);
       }
     }
@@ -844,6 +847,33 @@
                  data.skills = [...new Set(extractedWords)].slice(0, 10);
               }
 
+              if (data.skills && data.skills.length < 3) {
+                 document.getElementById('manual-skills').value = data.skills.join(', ');
+                 document.getElementById('manual-projects').value = (data.projects || []).join('\n');
+                 document.getElementById('manual-education').value = Array.isArray(data.education) ? data.education.join('\n') : (data.education || '');
+                 document.getElementById('manual-certs').value = (data.certifications || []).join(', ');
+                 
+                 currentMode = "manual";
+                 document.getElementById('mode-manual').classList.add('active');
+                 document.getElementById('mode-auto').classList.remove('active');
+                 showView('#input-view');
+                 document.getElementById('manual-section').classList.remove('hidden');
+                 document.getElementById('auto-section').classList.add('hidden');
+                 
+                 // Show yellow banner message
+                 const msg = `⚠️ Only ${data.skills.length} skills found automatically from LinkedIn. Please review and add more skills, then click Generate Recommendations.`;
+                 const banner = document.createElement("div");
+                 banner.className = "warning-banner";
+                 banner.style.cssText = "background-color: #fef08a; color: #854d0e; padding: 10px; border-radius: 6px; margin-bottom: 12px; font-size: 13px; border: 1px solid #fde047;";
+                 banner.textContent = msg;
+                 
+                 const existingBanner = document.querySelector('.warning-banner');
+                 if (existingBanner) existingBanner.remove();
+                 document.getElementById('manual-section').prepend(banner);
+                 
+                 return;
+              }
+
               profileData = data;
               await fetchRecommendations(profileData);
             });
@@ -894,44 +924,56 @@
     showLoading("Matching against 50 career paths using AI...");
     isML = false;
 
-    // Timeout logic (5 seconds)
+    const payload = {
+      skills: data.skills || [],
+      projects: data.projects || [],
+      education: Array.isArray(data.education) ? data.education.join(" ") : (data.education || ""),
+      certifications: data.certifications || []
+    };
+
+    console.warn("Calling backend with profile:", profileData || payload);
+
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const response = await fetch('http://localhost:8000/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
         signal: controller.signal
       });
 
       clearTimeout(timeoutId);
 
-      if (!response.ok) throw new Error('Backend failed');
+      if (!response.ok) throw new Error(`Backend failed with status ${response.status}`);
 
       const resList = await response.json();
       
-      // Map API Response to exactly match local engine formatting if needed
+      console.warn(`Backend responded with ${resList.recommendations.length} recommendations`);
+      
       recommendations = resList.recommendations.map(apiRec => {
+         let rawScore = apiRec.match_percentage ?? apiRec.match ?? apiRec.score ?? apiRec.similarity ?? apiRec.final_score ?? 0;
+         if (rawScore > 0 && rawScore <= 1) rawScore = rawScore * 100;
+         
          return {
-           title: apiRec.role,
-           description: apiRec.description,
-           matchPercent: Math.round(apiRec.match_percentage),
+           title: apiRec.role || apiRec.title,
+           description: apiRec.description || '',
+           matchPercent: Math.round(rawScore),
            missingSkills: apiRec.missing_skills || [],
            suggestions: (apiRec.related_roles || []).map(r => `Consider looking into ${r}`),
            breakdown: {
-             skills: Math.round(apiRec.match_percentage * 1.5) > 100 ? 100 : Math.round(apiRec.match_percentage * 1.5),
-             projects: Math.round(apiRec.match_percentage * 0.9),
-             education: Math.round(apiRec.match_percentage * 0.7),
-             certifications: Math.round(apiRec.match_percentage * 0.5)
+             skills: Math.min(Math.round(rawScore * 1.2), 100),
+             projects: Math.round(rawScore * 0.9),
+             education: Math.round(rawScore * 0.7),
+             certifications: Math.round(rawScore * 0.5)
            }
          };
       });
       isML = true;
 
     } catch (err) {
-      console.warn("Backend down or timeout, falling back to JS recommender...");
+      console.warn("Backend failed, reason:", err.message);
       recommendations = generateRecommendations(data);
       isML = false;
     }
@@ -976,7 +1018,7 @@
       if (displaySkills.length === 1 && displaySkills[0].length > 100) {
         displaySkills = extractSkillsFromText(displaySkills[0]);
       }
-      displaySkills = displaySkills.filter(s => s && s.length < 50 && s.trim().split(' ').length <= 4);
+      displaySkills = displaySkills.filter(s => s && s.length <= 40 && s.trim().split(/\s+/).length <= 4);
       
       if (displaySkills.length > 0) {
         summaryEl.innerHTML += `<div class="summary-section">
@@ -987,14 +1029,26 @@
     }
     if (profileData.projects?.length) {
       summaryEl.innerHTML += `<div class="summary-section">
-        <h4>Projects</h4>
-        ${profileData.projects.slice(0, 3).map(p => `<p class="project-item">• ${p}</p>`).join("")}
+        <h4>Projects & Experience</h4>
+        ${profileData.projects.map(p => {
+          let text = p.length > 60 ? p.substring(0, 57) + '...' : p;
+          return `<p class="project-item">• ${text}</p>`;
+        }).join("")}
       </div>`;
     }
     if (profileData.education?.length) {
+      const edLine = Array.isArray(profileData.education) ? profileData.education.join(" | ") : profileData.education;
+      if (edLine) {
+        summaryEl.innerHTML += `<div class="summary-section">
+          <h4>Education</h4>
+          <p class="edu-item">${edLine}</p>
+        </div>`;
+      }
+    }
+    if (profileData.certifications?.length) {
       summaryEl.innerHTML += `<div class="summary-section">
-        <h4>Education</h4>
-        ${profileData.education.slice(0, 2).map(e => `<p class="edu-item">${e}</p>`).join("")}
+        <h4>Certifications</h4>
+        <div class="tag-list">${profileData.certifications.map(c => `<span class="tag tag-skill" style="background:#e0e7ff;color:#3730a3;">${c}</span>`).join("")}</div>
       </div>`;
     }
 
@@ -1044,7 +1098,7 @@
         const collapseId = `resources-${idx}`;
         resourcesHTML = `
           <div class="learning-resources">
-            <button class="resources-toggle" onclick="document.getElementById('${collapseId}').classList.toggle('open')">
+            <button class="resources-toggle" data-target="${collapseId}">
               <span>📚 View Learning Paths</span>
               <span>▼</span>
             </button>
@@ -1100,6 +1154,21 @@
         ${resourcesHTML}
       `;
       cardsContainer.appendChild(card);
+    });
+
+    // Attach event listeners for the toggles (Inline onclick violates Chrome CSP)
+    document.querySelectorAll('.resources-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetId = btn.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        if (content) {
+          content.classList.toggle('open');
+          const chevron = btn.querySelectorAll('span')[1];
+          if (chevron) {
+            chevron.textContent = content.classList.contains('open') ? '▲' : '▼';
+          }
+        }
+      });
     });
   }
 })();
