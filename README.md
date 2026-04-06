@@ -87,11 +87,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🚀 Project Resources
 
-📄 **Report:**  
-👉 [Click to View PDF](./docs/project-report.pdf)
+📄 **PDF:**  
+👉 [Click to View PDF](./CodeRedd.pdf)
 
 🎤 **Presentation:**  
-👉 [Click to View Slides](./docs/presentation.pptx)
+👉 [Click to View Slides](./Intelligent-Job-Recommendation-Browser-Extension.pptx)
 
 ## 📄 License
 
