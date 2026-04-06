@@ -85,6 +85,15 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
+
+## 👥 Team Code Red
+
+- K J Sai Amrutha  
+- Mythri Bavanasi  
+- Vaddempudi Tejaswini  
+- Manku Deepika
+
+
 ## 🚀 Project Resources
 
 📄 **PDF:**  
