@@ -21,7 +21,7 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Vanilla JavaScript (ES6+), CSS3 (Modern Flexbox/Grid), Chrome Extension API.
+- **Frontend**: HTML, Vanilla JavaScript (ES6+), CSS3 (Modern Flexbox/Grid), Chrome Extension API.
 - **Backend**: Python 3.9+, FastAPI, Uvicorn.
 - **Machine Learning**: `Sentence-Transformers` (`all-MiniLM-L6-v2`), NumPy, PyTorch.
 
@@ -84,6 +84,14 @@ The recommendation engine weights your profile as follows:
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
+
+## 🚀 Project Resources
+
+📄 **Report:**  
+👉 [Click to View PDF](./docs/project-report.pdf)
+
+🎤 **Presentation:**  
+👉 [Click to View Slides](./docs/presentation.pptx)
 
 ## 📄 License
 
